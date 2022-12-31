@@ -3,6 +3,7 @@ import React from 'react';
 import Root from './routes/root';
 import ErrorPage from './views/error-page';
 import SignUp from './views/SignUp';
+import SignInSide from './views/SignInSide';
 // import ReactDOM from "react-dom/client";
 // import Button from '@mui/material/Button';
 import {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: "signup",
     element: <SignUp />,
+  },
+  {
+    path: "signin",
+    element: <SignInSide />,
   },
 ]);
 
