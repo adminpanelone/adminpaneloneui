@@ -1,23 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import Root from './routes/root';
+import ErrorPage from './views/error-page';
+import SignUp from './views/SignUp';
+// import ReactDOM from "react-dom/client";
+// import Button from '@mui/material/Button';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "signup",
+    element: <SignUp />,
+  },
+]);
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <React.StrictMode>
+        <RouterProvider router={router} />
+      </React.StrictMode>
     </div>
   );
 }
