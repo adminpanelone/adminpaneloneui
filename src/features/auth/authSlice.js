@@ -8,6 +8,7 @@ export const authSlice = createSlice({
     accessToken: null,
     refreshToken: null,
     email: null,
+    roles: null,
     value: 0
   },
   reducers: {
@@ -23,10 +24,16 @@ export const authSlice = createSlice({
     setAccessToken: (state, value) => {
       state.accessToken = value
     },
+    setRoles: (state, value) => {
+      state.roles = value
+    },
+    registerRequest(state){
+      state.value += 1
+    },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const {setFirstName, setSecondName, setEmail, setAccessToken} = authSlice.actions
+export const {setFirstName, setSecondName, setEmail, setAccessToken, registerRequest} = authSlice.actions
 
 export default authSlice.reducer

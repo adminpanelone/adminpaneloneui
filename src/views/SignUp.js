@@ -12,6 +12,8 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useSelector, useDispatch } from 'react-redux'
+import { registerRequest } from '../features/auth/authSlice'
 
 function Copyright(props) {
   return (
@@ -37,6 +39,9 @@ export default function SignUp() {
       password: data.get('password'),
     });
   };
+
+  const auth = useSelector(state => state.auth.value)
+  const dispatch = useDispatch()
 
   return (
     <ThemeProvider theme={theme}>
@@ -108,7 +113,8 @@ export default function SignUp() {
               </Grid>
             </Grid>
             <Button
-              type="submit"
+              // type="submit"
+              onClick={() => dispatch(registerRequest())}
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}

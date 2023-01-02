@@ -4,6 +4,7 @@ import Root from '../routes/root';
 import ErrorPage from './error-page';
 import SignUp from './SignUp';
 import SignInSide from './SignInSide';
+import Profile from './Profile';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
   {
     path: "signin",
     element: <SignInSide />,
+  },
+  {
+    path: "profile",
+    element: <Profile />,
   },
 ]);
 
@@ -69,15 +74,15 @@ function MainPageLayout() {
     },
   });
 
-  const [open, setOpen] = React.useState(false);
+  // const [open, setOpen] = React.useState(false);
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
+  // const handleDrawerOpen = () => {
+  //   setOpen(true);
+  // };
 
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
+  // const handleDrawerClose = () => {
+  //   setOpen(false);
+  // };
 
   return (
     <Box sx={{display: 'flex'}}>
@@ -91,6 +96,7 @@ function MainPageLayout() {
             <Stack spacing={1} direction="row" justifyContent="flex-end" alignItems="center">
               <Button color="neutral" variant="outlined" href="/signin">Sign-In</Button>
               <Button color="neutral" variant="outlined" href="/signup">Sign-Up</Button>
+              <Button color="neutral" variant="outlined" href="/profile">Profile</Button>
             </Stack>
           </Toolbar>
         </AppBar>
